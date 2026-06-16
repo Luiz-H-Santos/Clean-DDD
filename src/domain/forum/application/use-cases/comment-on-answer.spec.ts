@@ -1,0 +1,35 @@
+import { makeAnswer } from '@/test/factories/make-answer.js'
+import { InMemoryAnswerCommentRepository } from '@/test/repositores/in-memory-answer-comments-repository.js'
+import { InMemoryAnswersRepository } from '@/test/repositores/in-memory-answer-repository.js'
+import { CommentOnAnswerUseCase } from './comment-on-answer.js'
+
+let inMemoryAnswerRepository: InMemoryAnswersRepository
+let inMemoryAnswerCommentRepository: InMemoryAnswerCommentRepository
+let sut: CommentOnAnswerUseCase
+
+describe('Comment on Answer', () => {
+  beforeEach(() => {
+    inMemoryAnswerRepository = new InMemoryAnswersRepository()
+    inMemoryAnswerCommentRepository = new InMemoryAnswerCommentRepository()
+
+    sut = new CommentOnAnswerUseCase(
+      inMemoryAnswerRepository,
+      inMemoryAnswerCommentRepository,
+    )
+  })
+
+  it('should be able to comment on answer', async () => {
+    const answer = makeAnswer()
+
+    await inMemoryAnswerRepository.create(answer)
+
+    await sut.execute({
+      answerId: answer.id.toString(),
+      authorId: answer.authorId.toString(),
+      content: 'Comentário do teste',
+    })
+    expect(inMemoryAnswerCommentRepository.items[0]?.content).toEqual(
+      'Comentário do teste',
+    )
+  })
+})
