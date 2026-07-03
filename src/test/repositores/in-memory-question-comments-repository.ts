@@ -1,3 +1,4 @@
+import { PaginationParams } from '@/core/repositories/pagination-params.js'
 import { QuestionCommentRepository } from '@/domain/forum/application/repositories/question-comments-repository.js'
 import { QuestionComment } from '@/domain/forum/enterprise/entities/question-comment.js'
 
@@ -11,6 +12,14 @@ export class InMemoryQuestionCommentRepository implements QuestionCommentReposit
       return null
     }
     return questionComment
+  }
+
+  async findManyByQuestionId(questionId: string, { page }: PaginationParams) {
+    const questionComments = this.items
+      .filter((item) => item.questionId.toString() === questionId)
+      .slice((page - 1) * 20, page * 20)
+
+    return questionComments
   }
 
   async create(questionComment: QuestionComment) {
