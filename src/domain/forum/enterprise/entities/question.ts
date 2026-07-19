@@ -3,12 +3,14 @@ import { Entity } from '@/core/entities/entity.js'
 import { UniqueEntityId } from '@/core/entities/unique-entity-id.js'
 import dayjs from 'dayjs'
 import { Optional } from '@/core/types/optional.js'
+import { QuestionAttachment } from './question-attachment.js'
 
 export interface QuestionProps {
   authorId: UniqueEntityId
   bestAnswerId?: UniqueEntityId | undefined
   title: string
   content: string
+  attachments: QuestionAttachment[]
   createdAt: Date
   updateAt?: Date
   slug: Slug
@@ -25,6 +27,10 @@ export class Question extends Entity<QuestionProps> {
 
   get content() {
     return this.props.content
+  }
+
+  get attachments() {
+    return this.props.attachments
   }
 
   get createdAt() {
@@ -66,18 +72,23 @@ export class Question extends Entity<QuestionProps> {
     this.touch()
   }
 
+  set attachments(attachments: QuestionAttachment[]) {
+    this.props.attachments = attachments
+  }
+
   set bestAnswerId(bestAnswerId: UniqueEntityId | undefined) {
     this.props.bestAnswerId = bestAnswerId
     this.touch()
   }
 
   static create(
-    props: Optional<QuestionProps, 'createdAt' | 'slug'>,
+    props: Optional<QuestionProps, 'createdAt' | 'slug' | 'attachments'>,
     id?: UniqueEntityId,
   ) {
     const question = new Question(
       {
         ...props,
+        attachments: props.attachments ?? [],
         slug: props.slug ?? Slug.createFromText(props.title),
         createdAt: props.createdAt ?? new Date(),
       },
