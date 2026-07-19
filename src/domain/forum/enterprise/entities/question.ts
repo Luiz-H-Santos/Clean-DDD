@@ -1,9 +1,9 @@
 import { Slug } from './value-objects/slug.js'
-import { Entity } from '@/core/entities/entity.js'
 import { UniqueEntityId } from '@/core/entities/unique-entity-id.js'
 import dayjs from 'dayjs'
 import { Optional } from '@/core/types/optional.js'
 import { QuestionAttachment } from './question-attachment.js'
+import { AggregateRoot } from '@/core/entities/aggregate-root.js'
 
 export interface QuestionProps {
   authorId: UniqueEntityId
@@ -16,7 +16,7 @@ export interface QuestionProps {
   slug: Slug
 }
 
-export class Question extends Entity<QuestionProps> {
+export class Question extends AggregateRoot<QuestionProps> {
   get authorId() {
     return this.props.authorId
   }
