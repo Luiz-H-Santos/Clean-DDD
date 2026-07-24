@@ -29,7 +29,7 @@ export class DeleteQuestionUseCase {
     if (authorId !== question.authorId.toString()) {
       return left(new NotAllowedError())
     }
-    await this.questionRepository.create(question)
+    await this.questionRepository.delete(question)
 
     return right(null)
   }
