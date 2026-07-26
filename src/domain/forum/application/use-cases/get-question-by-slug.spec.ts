@@ -2,13 +2,19 @@ import { InMemoryQuestionRepository } from '@/test/repositores/in-memory-questio
 import { GetQuestionBySlug } from './get-question-by-slug.js'
 import { makeQuestion } from '@/test/factories/make-question.js'
 import { Slug } from '../../enterprise/entities/value-objects/slug.js'
+import { InMemoryQuestionAttachmentRepository } from '@/test/repositores/in-memory-question-attachments-repository.js'
 
+let inMemoryQuestionAttachmentRepository: InMemoryQuestionAttachmentRepository
 let inMemoryQuestionRepository: InMemoryQuestionRepository
 let sut: GetQuestionBySlug
 
 describe('Get Question By Slug', () => {
   beforeEach(() => {
-    inMemoryQuestionRepository = new InMemoryQuestionRepository()
+    inMemoryQuestionAttachmentRepository =
+      new InMemoryQuestionAttachmentRepository()
+    inMemoryQuestionRepository = new InMemoryQuestionRepository(
+      inMemoryQuestionAttachmentRepository,
+    )
     sut = new GetQuestionBySlug(inMemoryQuestionRepository)
   })
 

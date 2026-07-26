@@ -29,7 +29,7 @@ export class DeleteAnswerUseCase {
     if (authorId !== answer.authorId.toString()) {
       return left(new NotAllowedError())
     }
-    await this.answerRepository.create(answer)
+    await this.answerRepository.delete(answer)
 
     return right(null)
   }
