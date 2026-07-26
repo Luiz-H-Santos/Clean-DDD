@@ -1,8 +1,8 @@
-import { InMemoryQuestionRepository } from '@/test/repositores/in-memory-question-repository.js'
+import { InMemoryQuestionRepository } from '@/test/repositories/in-memory-question-repository.js'
 import { GetQuestionBySlug } from './get-question-by-slug.js'
 import { makeQuestion } from '@/test/factories/make-question.js'
 import { Slug } from '../../enterprise/entities/value-objects/slug.js'
-import { InMemoryQuestionAttachmentRepository } from '@/test/repositores/in-memory-question-attachments-repository.js'
+import { InMemoryQuestionAttachmentRepository } from '@/test/repositories/in-memory-question-attachments-repository.js'
 
 let inMemoryQuestionAttachmentRepository: InMemoryQuestionAttachmentRepository
 let inMemoryQuestionRepository: InMemoryQuestionRepository

@@ -1,9 +1,9 @@
-import { InMemoryAnswersRepository } from '@/test/repositores/in-memory-answer-repository.js'
+import { InMemoryAnswersRepository } from '@/test/repositories/in-memory-answer-repository.js'
 import { UniqueEntityId } from '@/core/entities/unique-entity-id.js'
 import { DeleteAnswerUseCase } from './delete-answer.js'
 import { makeAnswer } from '@/test/factories/make-answer.js'
 import { NotAllowedError } from './errors/not-allowed-error.js'
-import { InMemoryAnswerAttachmentRepository } from '@/test/repositores/in-memory-attachments-repository.js'
+import { InMemoryAnswerAttachmentRepository } from '@/test/repositories/in-memory-attachments-repository.js'
 import { makeAnswerAttachment } from '@/test/factories/make-answer-attachment.js'
 
 let inMemoryAnswerAttachmentRepository: InMemoryAnswerAttachmentRepository

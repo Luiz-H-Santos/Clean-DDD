@@ -1,4 +1,4 @@
-import { InMemoryQuestionCommentRepository } from '@/test/repositores/in-memory-question-comments-repository.js'
+import { InMemoryQuestionCommentRepository } from '@/test/repositories/in-memory-question-comments-repository.js'
 import { DeleteQuestionCommentUseCase } from './delete-question-comment.js'
 import { makeQuestionComment } from '@/test/factories/make-question-comments.js'
 import { UniqueEntityId } from '@/core/entities/unique-entity-id.js'

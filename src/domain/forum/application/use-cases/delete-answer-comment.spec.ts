@@ -1,4 +1,4 @@
-import { InMemoryAnswerCommentRepository } from '@/test/repositores/in-memory-answer-comments-repository.js'
+import { InMemoryAnswerCommentRepository } from '@/test/repositories/in-memory-answer-comments-repository.js'
 import { DeleteAnswerCommentUseCase } from './delete-answer-comment.js'
 import { makeAnswerComment } from '@/test/factories/make-answer-comment.js'
 import { UniqueEntityId } from '@/core/entities/unique-entity-id.js'

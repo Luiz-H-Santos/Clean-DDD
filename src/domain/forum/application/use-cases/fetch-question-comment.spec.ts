@@ -1,5 +1,5 @@
 import { UniqueEntityId } from '@/core/entities/unique-entity-id.js'
-import { InMemoryQuestionCommentRepository } from '@/test/repositores/in-memory-question-comments-repository.js'
+import { InMemoryQuestionCommentRepository } from '@/test/repositories/in-memory-question-comments-repository.js'
 import { makeQuestionComment } from '@/test/factories/make-question-comments.js'
 import { FetchQuestionCommentsUseCase } from './fetch-question-comment.js'
 

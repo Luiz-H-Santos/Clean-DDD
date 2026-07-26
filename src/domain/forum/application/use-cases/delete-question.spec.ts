@@ -1,9 +1,9 @@
 import { makeQuestion } from '@/test/factories/make-question.js'
-import { InMemoryQuestionRepository } from '@/test/repositores/in-memory-question-repository.js'
+import { InMemoryQuestionRepository } from '@/test/repositories/in-memory-question-repository.js'
 import { UniqueEntityId } from '@/core/entities/unique-entity-id.js'
 import { DeleteQuestionUseCase } from './delete-question.js'
 import { NotAllowedError } from './errors/not-allowed-error.js'
-import { InMemoryQuestionAttachmentRepository } from '@/test/repositores/in-memory-question-attachments-repository.js'
+import { InMemoryQuestionAttachmentRepository } from '@/test/repositories/in-memory-question-attachments-repository.js'
 import { makeQuestionAttachment } from '@/test/factories/make-question-attachment.js'
 
 let inMemoryQuestionRepository: InMemoryQuestionRepository
