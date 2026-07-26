@@ -2,8 +2,8 @@ import { AnswersRepository } from '../repositories/answers-repository.js'
 import { Question } from '../../enterprise/entities/question.js'
 import { QuestionRepository } from '../repositories/questions-repository.js'
 import { Either, left, right } from '@/core/either.js'
-import { NotAllowedError } from './errors/not-allowed-error.js'
-import { ResourceNotFoundError } from './errors/resource-not-found.js'
+import { NotAllowedError } from '../../../../core/errors/errors/not-allowed-error.js'
+import { ResourceNotFoundError } from '../../../../core/errors/errors/resource-not-found.js'
 
 interface ChooseQuestionBestAnswerUseCaseRequest {
   authorId: string

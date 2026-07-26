@@ -1,6 +1,6 @@
 import { Either, left, right } from '@/core/either.js'
-import { NotAllowedError } from './errors/not-allowed-error.js'
-import { ResourceNotFoundError } from './errors/resource-not-found.js'
+import { NotAllowedError } from '../../../../core/errors/errors/not-allowed-error.js'
+import { ResourceNotFoundError } from '../../../../core/errors/errors/resource-not-found.js'
 import { AnswersRepository } from '../repositories/answers-repository.js'
 import { Answer } from '../../enterprise/entities/answer.js'
 import { AnswerAttachmentList } from '../../enterprise/entities/answer-attachment-list.js'

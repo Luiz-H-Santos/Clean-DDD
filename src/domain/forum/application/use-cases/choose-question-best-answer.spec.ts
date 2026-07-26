@@ -4,7 +4,7 @@ import { InMemoryQuestionRepository } from '@/test/repositories/in-memory-questi
 import { ChooseQuestionBestAnswerUseCase } from './choose-question-best-answer.js'
 import { makeQuestion } from '@/test/factories/make-question.js'
 import { UniqueEntityId } from '@/core/entities/unique-entity-id.js'
-import { NotAllowedError } from './errors/not-allowed-error.js'
+import { NotAllowedError } from '../../../../core/errors/errors/not-allowed-error.js'
 import { InMemoryAnswerAttachmentRepository } from '@/test/repositories/in-memory-attachments-repository.js'
 import { InMemoryQuestionAttachmentRepository } from '@/test/repositories/in-memory-question-attachments-repository.js'
 
